@@ -1,0 +1,108 @@
+@use  '../../scss/' as *;
+
+.header{
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    transition: height 0.3s ease, background-color 0.3s ease;
+
+    &.shrink{
+        padding: 0;
+        height: $header-shrink-height;
+        background-color: $body-bg;
+    }
+
+    &__wrap{
+        padding: 0 2rem;
+        @include flex(center,space-between);
+        height: 100%;
+
+        @include mobile {
+            justify-content: center;
+        }
+    }
+
+    &__logo{
+
+        a{
+            @include flex(center,center);
+            font-size: 2rem;
+        }
+
+        &__item{
+            width: 50px;
+            margin-right: 8px;
+
+            @include mobile{
+                width: 30px;
+            }
+        }
+    }
+
+    &__item{
+        @include flex(center,center);
+        font-size: 2rem;
+
+        @include tablet{
+            font-size: 1.5rem;
+        }
+        
+        @include mobile{
+            font-size: 1rem;
+        }
+
+        & > * ~ * {
+            margin-left: 2rem;
+        }
+
+        li{
+            position: relative;
+
+            &::after{
+                content: "";
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                transform: translateX(-50%);
+                width: 0%;
+                padding: 1px 0;
+                background-color: $main-color;
+                transition: width 0.5s ease;
+            }
+
+            &:hover::after{
+                width: 100%;
+            }
+
+            &.active::after{
+                width: 100%;
+            }
+        }
+
+        @include mobile {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            @include flex(center,space-between);
+            padding: 0 2rem;
+            height: $header-shrink-height;
+            background-color: $body-bg;
+
+            & > * ~ *{ 
+                margin-left: 0;
+            }
+
+            li{
+                &::after{
+                    padding: 0.5px 0;
+                }
+            }
+
+        }
+    }
+    
+}

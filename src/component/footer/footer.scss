@@ -1,0 +1,44 @@
+@use '../../scss/' as *;
+
+.footer{
+    @include flex(center,unset);
+    flex-direction: column; 
+    padding: 2rem 6rem;
+
+    &__logo{
+        width: 80px;
+
+        @include tablet{
+            width: 50px;
+        }
+
+        @include mobile{
+            width: 30px;
+        }
+        
+        img{
+            width: 100%;
+        }
+    }
+
+    &__content{
+        width: 60%;
+        @include flex(unset,space-between);
+        flex-wrap: wrap;
+
+        &__path{
+
+            &__btn{
+                display:block;
+                cursor:pointer;
+                font-weight: 600;
+                margin-bottom: 12px;
+
+                &:hover{
+                    color: $main-color;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,17 @@
+.movie-grid{
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
+    gap: 10px;
+
+    &__load{
+        text-align: center;
+    }
+}
+
+.movie-search{
+    .btn{
+        position: relative;
+        left: -16px;
+    }
+}

@@ -1,0 +1,49 @@
+@use '../../scss/' as *;
+
+h3{
+    margin-top: 12px;
+}
+
+.movie-card{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    padding-top: 160%;
+    position: relative;
+    border-radius: 10px;
+    
+    .btn{
+        visibility: hidden;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        padding: 6px 20px;
+        border-radius: 10px;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+
+        @include mobile{
+            padding: 16px 32px;
+        }
+    }
+
+    &::before{
+        visibility: hidden;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    &:hover .btn,
+    &:hover::before{
+        opacity: 1;
+        visibility:inherit;
+    }
+}
