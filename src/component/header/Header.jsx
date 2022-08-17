@@ -10,7 +10,7 @@ import './header.scss'
 
 const itemHeader = [
   {
-    type: 'home',
+    type: 'Home',
     path: '/',
   },
   {
@@ -46,6 +46,10 @@ const Header = () => {
     }
 
   },[])
+
+  useEffect(()=>{
+    document.documentElement.scrollTop = 0;
+  },[path])
 
   return (
     <div ref={headerRef} className='header'>

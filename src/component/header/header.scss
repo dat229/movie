@@ -65,9 +65,9 @@
                 content: "";
                 position: absolute;
                 left: 50%;
-                bottom: 0;
                 transform: translateX(-50%);
                 width: 0%;
+                bottom: 0;
                 padding: 1px 0;
                 background-color: $main-color;
                 transition: width 0.5s ease;
